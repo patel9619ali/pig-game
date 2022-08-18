@@ -15,16 +15,22 @@ let holdTwo = 0;
 let turnsLeftPlayer1 = 5;
 let turnsLeftPlayer2 = 5;
 
-let diceRandom = Math.trunc(Math.random() * 7);
+let diceRandom = Math.trunc(Math.random() * 6 + 1);
+let imageTag = document.createElement("img");
+
 rollDice.addEventListener("click", function () {
   if(turnsLeftPlayer1 > 0){
     diceRandom = Math.trunc(Math.random() * 6 + 1);
-    diceNumber.textContent = diceRandom;
+    imageTag.src = `file:///C:/Users/PATEL%20ALI/Downloads/Pig-Game-master/pig-game-master/Assets/images/dice_${diceRandom}.png`;
+    imageTag.classList.add("dice_image");
+    diceRolled.appendChild(imageTag);
     playerOne(diceRandom);
 }
  if(turnsLeftPlayer1 <= 0){
     diceRandom = Math.trunc(Math.random() * 6 + 1);
-    diceNumber.textContent = diceRandom;
+    imageTag.src = `file:///C:/Users/PATEL%20ALI/Downloads/Pig-Game-master/pig-game-master/Assets/images/dice_${diceRandom}.png`;
+    imageTag.classList.add("dice_image");
+    diceRolled.appendChild(imageTag);
     playerTwo(diceRandom);
 }
 });
