@@ -13,19 +13,36 @@
     <link rel="stylesheet" href="CSS/style.css" />
   </head>
   <body>
-    <section class="">
+    <section class="mt-5">
       <div class="container">
-        <div class="game_wrapper text-center p-5 vh-100 d-flex flex-column justify-content-between">
+        <div
+          class="game_wrapper text-center p-5 d-flex flex-column justify-content-between"
+        >
+          <button class="btn btn-primary w-25 mx-auto mb-5">New Game</button>
+          <div class="player_turns_left">
+            <div class="row">
+              <div class="col-4">
+                <h3>Turns Left</h3>
+                <h3 id="player_one_turn">5</h3>
+              </div>
+              <div class="col-4 offset-4">
+                <h3>Turns Left</h3>
+                <h3 id="player_two_turn">5</h3>
+              </div>
+            </div>
+          </div>
+          <div class="dice_rolled">
+            <p id="dice_number"></p>
+          </div>
           <div class="player_wrapper">
-            <button class="btn btn-primary w-25 mx-auto mb-5">New Game</button>
             <div class="row">
               <div class="col-4">
                 <h3>Player 1</h3>
-                <h3>0</h3>
+                <h3 id="player_one_score">0</h3>
               </div>
               <div class="col-4 offset-4">
                 <h3>Player 2</h3>
-                <h3>0</h3>
+                <h3 id="player_two_score">0</h3>
               </div>
             </div>
           </div>
@@ -34,19 +51,29 @@
               <div class="col-4">
                 <div class="current_player_score_1 py-3">
                   <h4>Current</h4>
-                  <h4>0</h4>
+                  <h4 id="current_one_score">0</h4>
                 </div>
               </div>
               <div class="col-4">
                 <div class="dice_hold_role">
-                  <button class="btn btn-primary w-75 mx-auto mb-3">Roll Dice</button>
-                  <button class="btn btn-primary w-50 mx-auto mb-3">Hold Number</button>
+                  <button
+                    class="btn btn-primary w-75 mx-auto mb-3"
+                    id="roll_dice"
+                  >
+                    Roll Dice
+                  </button>
+                  <button
+                    class="btn btn-primary w-50 mx-auto mb-3"
+                    id="hold_dice"
+                  >
+                    Hold Number
+                  </button>
                 </div>
               </div>
               <div class="col-4">
                 <div class="current_player_score_2 py-3">
                   <h4>Current</h4>
-                  <h4>0</h4>
+                  <h4 id="current_two_score">0</h4>
                 </div>
               </div>
             </div>
