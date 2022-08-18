@@ -1,19 +1,20 @@
-*{
-margin: 0;
-padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-body{
-    background: yellow;
+body {
+  background: yellow;
 }
 
-.game_wrapper{
-    box-shadow: 0 3rem 5rem rgb(0 0 0 / 25%);
-    border-radius: 9px;
+.game_wrapper {
+  box-shadow: 0 3rem 5rem rgb(0 0 0 / 25%);
+  border-radius: 9px;
 }
-.current_player_score_1 , .current_player_score_2{
-    background-color: #c7365f;
-    opacity: 0.8;
-    border-radius: 9px;
-    color: #fff;
+.current_player_score_1,
+.current_player_score_2 {
+  background-color: #c7365f;
+  opacity: 0.8;
+  border-radius: 9px;
+  color: #fff;
 }
