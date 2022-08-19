@@ -18,3 +18,7 @@ body {
   border-radius: 9px;
   color: #fff;
 }
+.dice_image {
+  width: 100px;
+  height: 100px;
+}
