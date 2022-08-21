@@ -8,42 +8,56 @@ let diceNumber = document.getElementById("dice_number");
 let rollDice = document.getElementById("roll_dice");
 let holdDice = document.getElementById("hold_dice");
 let diceRolled = document.getElementById("dice_rolled");
-let strOne = 0;
-let holdOne = 0;
-let strTwo = 0;
-let holdTwo = 0;
-let turnsLeftPlayer1 = 3;
-let turnsLeftPlayer2 = 3;
+let strOne;
+let holdOne;
+let strTwo;
+let holdTwo;
+let turnsLeftPlayer1;
+let turnsLeftPlayer2;
+let imageTag = document.createElement("img");
+let init = function calcInit(){
+strOne = 0;
+holdOne = 0;
+strTwo = 0;
+holdTwo = 0;
+turnsLeftPlayer1 = 3;
+turnsLeftPlayer2 = 3;
+playerOneTurn.textContent = turnsLeftPlayer1;
+playerTwoTurn.textContent = turnsLeftPlayer2;
+playerOneScore.textContent = 0;
+playerTwoScore.textContent = 0;
+playerOneCurrentScore.textContent = 0;
+playerTwoCurrentScore.textContent = 0;
+imageTag.classList.add("image_remove");
+}
+init();
+let newGame = document.getElementById("new_game");
 
 let diceRandom = Math.trunc(Math.random() * 6 + 1);
 console.log(`For Gloabal ${diceRandom}`);
-let imageTag = document.createElement("img");
 
+newGame.addEventListener('click' , init)
+
+function imageAdding(){
+  imageTag.src = `file:///C:/Users/PATEL%20ALI/Downloads/Pig-Game-master/pig-game-master/Assets/images/dice_${diceRandom}.png`;
+  imageTag.classList.add("dice_image");
+  imageTag.classList.remove("image_remove");
+  diceRolled.appendChild(imageTag);
+}
 rollDice.addEventListener("click", function () {
   if (turnsLeftPlayer1 > 0) {
     diceRandom = Math.trunc(Math.random() * 6 + 1);
-    imageTag.src = `file:///C:/Users/Desktop/Downloads/pig-game-master/pig-game-master/Assets/images/dice_${diceRandom}.png`;
-    imageTag.classList.add("dice_image");
-    diceRolled.appendChild(imageTag);
+    imageAdding();
     playerOne(diceRandom);
   }
   if (turnsLeftPlayer1 <= 0 && turnsLeftPlayer2 > 0) {
     diceRandom = Math.trunc(Math.random() * 6 + 1);
-    console.log(
-      `For Player 2 turns left for player1 is ${turnsLeftPlayer1} player2 is ${turnsLeftPlayer2} and ${diceRandom}`
-    );
-
-    imageTag.src = `file:///C:/Users/Desktop/Downloads/pig-game-master/pig-game-master/Assets/images/dice_${diceRandom}.png`;
-    imageTag.classList.add("dice_image");
-    diceRolled.appendChild(imageTag);
+    imageAdding();
     playerTwo(diceRandom);
   }
   whoWon();
 });
 holdDice.addEventListener("click", function () {
-  if (playerOneTurn === 0 && playerTwoTurn === 1) {
-    console.log("Game Over");
-  }
   if (turnsLeftPlayer1 > 0) {
     playerOneHold();
   } else if (turnsLeftPlayer2 > 0) {
@@ -57,6 +71,7 @@ function playerOne(diceRandom) {
   if (diceRandom === 1) {
     turnsLeftPlayer1--;
     playerOneTurn.textContent = turnsLeftPlayer1;
+    alert('You Got one')
     strOne = 0;
     playerOneCurrentScore.textContent = strOne;
   }
@@ -91,8 +106,10 @@ function playerTwoHold() {
 function whoWon() {
   if (turnsLeftPlayer1 == 0 && turnsLeftPlayer2 == 0) {
     if (playerOneScore.textContent > playerTwoScore.textContent) {
+      console.log(`${playerOneScore.textContent} > ${playerTwoScore.textContent}`)
       alert(`Player One Won`);
     } else if (playerOneScore.textContent < playerTwoScore.textContent) {
+      console.log(`${playerOneScore.textContent} < ${playerTwoScore.textContent}`)
       alert(`Player Two Won`);
     } else {
       alert(`Its a Draw`);
